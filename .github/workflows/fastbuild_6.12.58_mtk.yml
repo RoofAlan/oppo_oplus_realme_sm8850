@@ -523,6 +523,10 @@ jobs:
           echo "CONFIG_MQ_IOSCHED_ADIOS=y" >> ./common/arch/arm64/configs/gki_defconfig
           echo "CONFIG_MQ_IOSCHED_DEFAULT_ADIOS=y" >> ./common/arch/arm64/configs/gki_defconfig
 
+      - name: 开启 CONFIG_FTRACE_SYSCALLS
+        run: |
+            echo "CONFIG_FTRACE_SYSCALLS=y" >> ./common/arch/arm64/configs/gki_defconfig
+
       - name: 启用Re-Kernel支持
         if: inputs.rekernel_enable
         run: |
