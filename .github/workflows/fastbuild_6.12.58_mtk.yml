@@ -493,7 +493,6 @@ jobs:
             echo "CONFIG_NETFILTER_XT_MATCH_ADDRTYPE=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_NETFILTER_XT_TARGET_LOG=y" >> ./arch/arm64/configs/gki_defconfig
             echo "CONFIG_NETFILTER_XT_MATCH_RECENT=y" >> ./arch/arm64/configs/gki_defconfig
-            echo "CONFIG_FTRACE_SYSCALLS=y" >> ./arch/arm64/configs/gki_defconfig
             # 未经测试的配置选项，可能导致bug
             #echo "CONFIG_CGROUP_DEVICE=y" >> ./arch/arm64/configs/gki_defconfig
             #echo "CONFIG_CGROUP_PIDS=y" >> ./arch/arm64/configs/gki_defconfig
@@ -525,6 +524,8 @@ jobs:
 
       - name: 开启 CONFIG_FTRACE_SYSCALLS
         run: |
+            echo "向尾部追加选项"
+            cd kernel_workspace
             echo "CONFIG_FTRACE_SYSCALLS=y" >> ./common/arch/arm64/configs/gki_defconfig
 
       - name: 启用Re-Kernel支持
